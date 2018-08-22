@@ -20,7 +20,6 @@ $ kubectl apply -f ./kube
 ```
 
 
-![](https://cdn-images-1.medium.com/max/800/1*VdUh1Yv0BZ7NNZJ5yJasIw.png)
 
 # Getting started with microservices and Kubernetes
 
@@ -51,12 +50,6 @@ et al.
 
 This guide is mainly aimed at people who have got a single service running in
 Kube and are thinking “*now what?”*.
-
-### Tldr; section
-
-If you are more of a ‘just show me the code’ sort of person, you’ll really like
-[this git repo](https://github.com/fluidly/total_invoice_management). Otherwise
-read on.
 
 ### Before we start
 
