@@ -1,0 +1,51 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: expected-date-svc
+  name: expected-date-svc
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: expected-date-svc
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: expected-date-svc
+    spec:
+      containers:
+      - image: expected_date_svc:v1
+        imagePullPolicy: IfNotPresent
+        name: expected-date-svc
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: expected-date-svc
+  name: expected-date-svc
+  namespace: default
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: expected-date-svc
+  sessionAffinity: None
+  type: ClusterIP
