@@ -20,6 +20,7 @@ $ kubectl apply -f ./kube
 ```
 
 
+![](https://cdn-images-1.medium.com/max/800/1*VdUh1Yv0BZ7NNZJ5yJasIw.png)
 
 # Getting started with microservices and Kubernetes
 
@@ -386,94 +387,5 @@ so that kubernetes knows if a service fails silently or logging and monitoring
 so we can find out what our services are up to when we aren’t looking.
 
 ![](https://cdn-images-1.medium.com/max/800/1*VdUh1Yv0BZ7NNZJ5yJasIw.png)
-<span class="figcaption_hack">How all the bits go togther</span>
 
-#### I like it!
 
-Great, us too. We like kube so much that we use it for our most demanding
-infrastructure requirements at [Fluidly](https://fluidly.com/), in particular
-for our data science models. It’s a steep learning curve, but the rewards are
-substantial.
-
-If you like the sound of this sort of work we are often looking for amazing
-people. Drop us a line:[ jobs@fluidly.com](mailto:jobs@fluidly.com) .
-
-*****
-
-* our data scientists do this for real!
-
-![](https://cdn-images-1.medium.com/max/800/1*PZjwR1Nbluff5IMI6Y1T6g@2x.png)
-
-* [Docker](https://hackernoon.com/tagged/docker?source=post)
-* [Kubernetes](https://hackernoon.com/tagged/kubernetes?source=post)
-* [Microservices](https://hackernoon.com/tagged/microservices?source=post)
-* [Software
-Architecture](https://hackernoon.com/tagged/software-architecture?source=post)
-* [Software
-Development](https://hackernoon.com/tagged/software-development?source=post)
-
-From a quick cheer to a standing ovation, clap to show how much you enjoyed this
-story.
-
-### [Dom Barker](https://hackernoon.com/@MostlyHarmlessD)
-
-At work I turn people into teams that turn coffee into code. I spend my free
-time falling off bicycles.
-
-### [Hacker Noon](https://hackernoon.com/?source=footer_card)
-
-how hackers start their afternoons.
-
-you can run: **npm init -y**
-
-and result will be like say yes to every questions
-
-We are waiting for your next article like liveness probes,linkerd extension,dns
-discovery
-
-If you encounter an error with kubectl not being able to pull your image, but
-you can see the image when you run `docker image ls` . It is probably because
-you switched to a different shell session where you no longer have the docker
-daemon running on minikube. To fix this, simply run `eval $(minikube
-docker-env)` . You should notice that when you run…
-
-If you were to run a web app long with the rest of these services (let’s say a
-React.js application) would you use ambassador for mapping to the web app?
-
-Hi Damian Esteban,
-
-You **could** do, but in this case those requests would need to be authenticated
-which isn’t what you want. You **could** write some code in your authentication
-service to permit all requests from some domain, but that feels pretty messy to
-me.
-
-Thanks for the advice. Right now I’m just exposing the web application via a
-NodePort but that’s just a temporary solution. It isn’t managed by Ambassador.
-Would you expose it via a LoadBalancer maybe instead of a NodePort? I should
-mention that I’ll be running this on AWS via kops, but right now it’s running on
-MiniKube.
-
-Yep, a load balancer egress should do the job nicely.
-
-This article cleared up so many basic questions that I had about Kubernetes.
-Seeing a simple example like this laid out beginning to end I incredibly
-helpful. Thank you.
-
-I’m having trouble updating the `invoices_svc.yaml` file. I’m not sure where to
-add the updated code in. whatever i’ve tried on the `invoices_svc.yaml` file &
-then run `kubectl apply -f ../kube/invoices_svc.yaml` gives me `error: error
-validating “../kube/invoices_svc.yaml”: error validating data: [apiVersion not
-set, kind not set]; if you choose to…
-
-Hi Kyle Marvich, it’s really hard to say what’s wrong without seeing the full
-yaml file, but it sounds like you have accidentally overwritten the apiVersion.
-You can see the finished yaml file here:
-https://github.com/fluidly/total_invoice_management/blob/master/kube/invoices_svc.yaml
-
-Hopefully you can compare and see where you are going wrong.
-
-Getting started with microservices [From zero to production]
-
-https://www.udemy.com/getting-started-with-microservices-from-zero-to-production/learn/v4/?couponCode=FACEBOOKDISCOUNT
-
-Thanks for this well explained tutorial
